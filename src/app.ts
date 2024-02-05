@@ -14,9 +14,14 @@ import db from "../config/db";
 //Logger
 import Logger from "../config/logger";
 
+// Middlewares
+import morganMiddleware from "./middleware/morganMiddleware";
+
 const app = express();
 
 app.use(express.json())
+
+app.use(morganMiddleware);
 
 app.use("/api/", router);
 
